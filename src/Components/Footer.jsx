@@ -1,13 +1,16 @@
-import React from 'react'
-console.log(React);
+import { useContext } from 'react';
+import { AppContext } from '../AppContext';
 
 const Footer = () => {
-  return (
-    <footer>
-        <p>Powered by</p>
-        <img src="./img/DH.png" alt='DH-logo' />
-    </footer>
-  )
-}
+  const { state } = useContext(AppContext);
+  const { theme } = state;
 
-export default Footer
+  return (
+    <footer className={`footer ${theme}`}>
+      <p>Powered by</p>
+      <img src="./img/DH.png" alt="DH-logo" />
+    </footer>
+  );
+};
+
+export default Footer;
