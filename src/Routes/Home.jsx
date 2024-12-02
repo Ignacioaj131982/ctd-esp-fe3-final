@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { AppContext } from '../AppContext'; // Importa el contexto para el tema
 import Card from '../Components/Card';  // Importa el componente Card
 
 // Este componente deberá ser estilado como "dark" o "light" dependiendo del tema del Context
 const Home = () => {
   const [dentists, setDentists] = useState([]);
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   const { theme } = state;
 
   // Función para obtener los dentistas desde la API

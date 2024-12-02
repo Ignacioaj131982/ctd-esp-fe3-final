@@ -6,13 +6,11 @@ const Card = ({ dentist, addToFavorites, removeFromFavorites }) => {
     <div className="card">
       <h3>{dentist.name}</h3>
       <p>{dentist.username}</p>
-      
-      {/* Botón para agregar a favoritos */}
+
       <button onClick={() => addToFavorites(dentist)}>ADD FAV</button>
-      
-      {/* Botón para eliminar de favoritos */}
       <button onClick={() => removeFromFavorites(dentist)}>REMOVE FAV</button>
-      
+
+      {/* Enlace a la página de detalles del dentista */}
       <Link to={`/dentist/${dentist.id}`}>Ver detalles</Link>
     </div>
   );
@@ -25,7 +23,7 @@ Card.propTypes = {
     username: PropTypes.string.isRequired,
   }).isRequired,
   addToFavorites: PropTypes.func.isRequired,
-  removeFromFavorites: PropTypes.func.isRequired, // Asegúrate de que la función de eliminación esté validada
+  removeFromFavorites: PropTypes.func.isRequired,
 };
 
 export default Card;

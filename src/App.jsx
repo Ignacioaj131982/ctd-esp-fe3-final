@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Routes/Home';
 import Contacto from './Routes/Contact';
-import DentistDetail from './Routes/Detail';
 import Favs from './Routes/Favs';
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
+import DentistDetail from './Components/DentistDetail';
 import { useContext } from 'react';
 import { AppContext } from './AppContext';  
 
