@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../Components/Card";
 
 const Favs = () => {
   const [favorites, setFavorites] = useState([]);
 
-  // Recuperamos los favoritos desde el localStorage cuando el componente se monta
+  
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setFavorites(storedFavorites);
   }, []);
 
-  // Función para eliminar un dentista de favoritos
+ 
   const removeFavorites = (dentist) => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const updatedFavorites = favorites.filter(fav => fav.id !== dentist.id);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    setFavorites(updatedFavorites); // Actualiza el estado para reflejar el cambio inmediatamente
+    setFavorites(updatedFavorites); 
     alert(`${dentist.name} eliminado de favoritos`);
   };
 
@@ -29,7 +29,8 @@ const Favs = () => {
               key={dentist.id}
               dentist={dentist}
               addToFavorites={() => {}}
-              removeFromFavorites={removeFavorites} // Pasa la función de eliminar
+              removeFromFavorites={removeFavorites} 
+              showRemoveButton={true} 
             />
           ))
         ) : (
