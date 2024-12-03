@@ -1,17 +1,46 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../Styles/styles.css';
 
-const Card = ({ dentist, addToFavorites, removeFromFavorites }) => {
+const Card = ({ dentist, addToFavorites, removeFromFavorites, showRemoveButton }) => {
   return (
     <div className="card">
-      <h3>{dentist.name}</h3>
-      <p>{dentist.username}</p>
+      <Link to={`/dentist/${dentist.id}`}>
+        <img src="/images/doctor.jpg" alt="Dentist" className="card-image" />
+      </Link>
 
-      <button onClick={() => addToFavorites(dentist)}>ADD FAV</button>
-      <button onClick={() => removeFromFavorites(dentist)}>REMOVE FAV</button>
+      <h3 className="card-title">{dentist.name}</h3>
+      <p className="card-username">{dentist.username}</p>
 
-      {/* Enlace a la página de detalles del dentista */}
-      <Link to={`/dentist/${dentist.id}`}>Ver detalles</Link>
+      {!showRemoveButton && (
+        <button
+          className="favorite-button"
+          onClick={() => addToFavorites(dentist)}
+          >
+          <img
+            src="/public/images/tooth-icon.jpg"
+            alt="Add to favorites"
+            className="favorite-icon"
+          />
+          Add to Favorites
+        </button>
+      )}
+
+      {showRemoveButton && (
+        <button
+          className="remove-button"
+          onClick={() => {
+          console.log('Removing:', dentist);
+          removeFromFavorites(dentist);
+    }}
+  >
+    REMOVE FAV
+  </button>
+)}
+
+      <Link to={`/dentist/${dentist.id}`} className="details-link">
+        Ver detalles
+      </Link>
     </div>
   );
 };
@@ -24,6 +53,12 @@ Card.propTypes = {
   }).isRequired,
   addToFavorites: PropTypes.func.isRequired,
   removeFromFavorites: PropTypes.func.isRequired,
+  showRemoveButton: PropTypes.bool,
+};
+
+Card.defaultProps = {
+  showRemoveButton: false,
 };
 
 export default Card;
+
