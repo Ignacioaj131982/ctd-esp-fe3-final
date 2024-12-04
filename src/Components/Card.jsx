@@ -18,7 +18,7 @@ const Card = ({ dentist, addToFavorites, removeFromFavorites, showRemoveButton }
           onClick={() => addToFavorites(dentist)}
           >
           <img
-            src="/public/images/tooth-icon.jpg"
+            src="/images/tooth-icon.jpg"
             alt="Add to favorites"
             className="favorite-icon"
           />
