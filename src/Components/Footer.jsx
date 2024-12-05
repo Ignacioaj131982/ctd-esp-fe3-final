@@ -1,5 +1,6 @@
-import { useContext } from 'react';
-import { AppContext } from '../AppContext';
+import { useContext } from "react";
+import { AppContext } from "../AppContext";
+import "../Styles/styles.css";
 
 const Footer = () => {
   const { state } = useContext(AppContext);
@@ -7,8 +8,24 @@ const Footer = () => {
 
   return (
     <footer className={`footer ${theme}`}>
-      <p>Powered by</p>
-      <img src="./img/DH.png" alt="DH-logo" />
+      <div className="footer-left">
+        <p>Powered by</p>
+        <img src="/public/DH.ico" alt="DH-logo" className="dh-logo" />
+      </div>
+      <div className="footer-right">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <img src="/public/images/ico-facebook.png" alt="Facebook" className="social-icon" />
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <img src="/public/images/ico-instagram.png" alt="Instagram" className="social-icon" />
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+          <img src="/public/images/ico-tiktok.png" alt="TikTok" className="social-icon" />
+        </a>
+        <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
+          <img src="/public/images/ico-whatsapp.png" alt="WhatsApp" className="social-icon" />
+        </a>
+      </div>
     </footer>
   );
 };
