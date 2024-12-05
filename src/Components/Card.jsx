@@ -19,7 +19,7 @@ const Card = ({ dentist, addToFavorites, removeFromFavorites, showRemoveButton }
           >
           <img
             src="/images/tooth icon2.jpg"
-            src="/images/tooth-icon.jpg"
+            
             alt="Add to favorites"
             className="favorite-icon"
           />
