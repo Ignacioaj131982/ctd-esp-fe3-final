@@ -16,10 +16,9 @@ const Card = ({ dentist, addToFavorites, removeFromFavorites, showRemoveButton }
         <button
           className="favorite-button"
           onClick={() => addToFavorites(dentist)}
-          >
+        >
           <img
             src="/images/tooth icon2.jpg"
-            
             alt="Add to favorites"
             className="favorite-icon"
           />
@@ -31,17 +30,13 @@ const Card = ({ dentist, addToFavorites, removeFromFavorites, showRemoveButton }
         <button
           className="remove-button"
           onClick={() => {
-          console.log('Removing:', dentist);
-          removeFromFavorites(dentist);
-    }}
-  >
-    REMOVE FAV
-  </button>
-)}
-
-      <Link to={`/dentist/${dentist.id}`} className="details-link">
-        Ver detalles
-      </Link>
+            console.log('Removing:', dentist);
+            removeFromFavorites(dentist);
+          }}
+        >
+          REMOVE FAV
+        </button>
+      )}
     </div>
   );
 };
@@ -62,4 +57,3 @@ Card.defaultProps = {
 };
 
 export default Card;
-

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Para acceder al ID de la URL
+import { useParams } from 'react-router-dom';
+import '../Styles/dentistDetail.css';
 
 const DentistDetail = () => {
-  const { id } = useParams(); // Obtener el ID del dentista de la URL
+  const { id } = useParams();
   const [dentist, setDentist] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,7 +21,7 @@ const DentistDetail = () => {
     };
 
     fetchDentistDetails();
-  }, [id]); // Vuelve a ejecutar cuando el ID cambie
+  }, [id]);
 
   if (loading) {
     return <p>Cargando detalles del dentista...</p>;
@@ -31,16 +32,42 @@ const DentistDetail = () => {
   }
 
   return (
-    <div>
-      <h1>{dentist.name}</h1>
-      <p><strong>Username:</strong> {dentist.username}</p>
-      <p><strong>Email:</strong> {dentist.email}</p>
-      <p><strong>Phone:</strong> {dentist.phone}</p>
-      <p><strong>Website:</strong> <a href={`http://${dentist.website}`} target="_blank" rel="noopener noreferrer">{dentist.website}</a></p>
-      <p><strong>Company:</strong> {dentist.company.name}</p>
+    <div className="table-container">
+      <h1>Detalles del Dentista</h1>
+      <table className="detail-table">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{dentist.name}</td>
+          </tr>
+          <tr>
+            <th>Username</th>
+            <td>{dentist.username}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{dentist.email}</td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td>{dentist.phone}</td>
+          </tr>
+          <tr>
+            <th>Web Site</th>
+            <td>
+              <a href={`http://${dentist.website}`} target="_blank" rel="noopener noreferrer">
+                {dentist.website}
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <th>Company</th>
+            <td>{dentist.company.name}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
 
 export default DentistDetail;
-
