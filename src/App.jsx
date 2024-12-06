@@ -28,8 +28,6 @@ const App = () => {
           <Route path="/favs" element={<Favs />} />
         </Routes>
       </div>
-
-      {/* Renderiza el Footer de forma fija */}
       <Footer />
     </Router>
   );
