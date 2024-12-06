@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import '../Styles/dentistDetail.css';
 
 const DentistDetail = () => {
-  const { id } = useParams(); // Obtener el ID del dentista de la URL
+  const { id } = useParams();
   const [dentist, setDentist] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +21,7 @@ const DentistDetail = () => {
     };
 
     fetchDentistDetails();
-  }, [id]); // Vuelve a ejecutar cuando el ID cambie
+  }, [id]);
 
   if (loading) {
     return <p>Cargando detalles del dentista...</p>;
@@ -37,11 +37,11 @@ const DentistDetail = () => {
       <table className="detail-table">
         <tbody>
           <tr>
-            <th>Nombre</th>
+            <th>Name</th>
             <td>{dentist.name}</td>
           </tr>
           <tr>
-            <th>Usuario</th>
+            <th>Username</th>
             <td>{dentist.username}</td>
           </tr>
           <tr>
@@ -49,11 +49,11 @@ const DentistDetail = () => {
             <td>{dentist.email}</td>
           </tr>
           <tr>
-            <th>Teléfono</th>
+            <th>Phone</th>
             <td>{dentist.phone}</td>
           </tr>
           <tr>
-            <th>Sitio Web</th>
+            <th>Web Site</th>
             <td>
               <a href={`http://${dentist.website}`} target="_blank" rel="noopener noreferrer">
                 {dentist.website}
@@ -61,7 +61,7 @@ const DentistDetail = () => {
             </td>
           </tr>
           <tr>
-            <th>Compañía</th>
+            <th>Company</th>
             <td>{dentist.company.name}</td>
           </tr>
         </tbody>
