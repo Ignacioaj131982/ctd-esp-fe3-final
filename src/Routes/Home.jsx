@@ -1,14 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
-import { AppContext } from '../AppContext'; // Importa el contexto para el tema
-import Card from '../Components/Card';  // Importa el componente Card
+import { AppContext } from '../AppContext';
+import Card from '../Components/Card';
 
-// Este componente deberá ser estilado como "dark" o "light" dependiendo del tema del Context
 const Home = () => {
   const [dentists, setDentists] = useState([]);
   const { state } = useContext(AppContext);
   const { theme } = state;
 
-  // Función para obtener los dentistas desde la API
   useEffect(() => {
     const fetchDentists = async () => {
       try {
@@ -23,7 +21,6 @@ const Home = () => {
     fetchDentists();
   }, []);
 
-  // Función para agregar un dentista a favoritos
   const addFavorites = (dentist) => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     if (!favorites.some(fav => fav.id === dentist.id)) {
@@ -35,7 +32,6 @@ const Home = () => {
     }
   };
 
-  // Función para eliminar un dentista de favoritos
   const removeFavorites = (dentist) => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const updatedFavorites = favorites.filter(fav => fav.id !== dentist.id);
@@ -52,7 +48,7 @@ const Home = () => {
             key={dentist.id}
             dentist={dentist}
             addToFavorites={addFavorites}
-            removeFromFavorites={removeFavorites} // Pasa la función para eliminar
+            removeFromFavorites={removeFavorites}
           />
         ))}
       </div>
